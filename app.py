@@ -50,15 +50,15 @@ def get_groq_feedback(user_input):
 
 # Streamlit UI
 st.title("🎧 영어 회화 피드백 챗봇 (Groq + Whisper)")
-uploaded_file = st.file_uploader("🔊 음성 파일 업로드 (.wav, .mp3, .mp4)", type=["wav", "mp3","mp4"])
+uploaded_file = st.file_uploader("🔊 음성/영상 파일 업로드 (.wav, .mp3, .mp4)", type=["wav", "mp3", "mp4"])
 
 if uploaded_file is not None:
-    with tempfile.NamedTemporaryFile(delete=False, suffix=".wav") as tmp:
+    with tempfile.NamedTemporaryFile(delete=False, suffix=".mp4") as tmp:
         tmp.write(uploaded_file.read())
-        audio_path = tmp.name
+        media_path = tmp.name
 
     with st.spinner("🧠 음성 인식 중..."):
-        text = load_whisper().transcribe(audio_path)["text"]
+        text = load_whisper().transcribe(media_path)["text"]
     st.success("🗣️ 인식된 문장:")
     st.write(text)
 
@@ -68,10 +68,10 @@ if uploaded_file is not None:
     st.markdown(feedback)
 
     tts = gTTS(feedback, lang="en")
-    tts_path = audio_path.replace(".wav", "_feedback.mp3")
+    tts_path = media_path.replace(".mp4", "_feedback.mp3")
     tts.save(tts_path)
     st.audio(tts_path)
 
     # 정리
-    os.remove(audio_path)
+    os.remove(media_path)
     os.remove(tts_path)
