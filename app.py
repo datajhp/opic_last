@@ -113,10 +113,17 @@ def generate_opic_questions(topic):
 # 자주 쓰는 단어 학습 기능
 def get_frequent_opic_words():
     prompt = """
-    Please provide a list of 10 commonly used English words or phrases in OPIc speaking tests, with Korean translations and example sentences.
-    Format as:
-    1. word - meaning (example sentence)
+Please provide a list of 10 commonly used English words or phrases in OPIc speaking tests.
+
+Format each item as:
+1. [English phrase] - [Korean meaning] (Example: [English sentence] / [Korean translation])
+
+Requirements:
+- Use only English and Korean. Do not use any other language (e.g., Japanese, Chinese).
+- Ensure that all English expressions and example sentences are natural and grammatically correct.
+- All Korean translations should be clear and accurate.
     """
+
     headers = {
         "Authorization": f"Bearer {GROQ_API_KEY}",
         "Content-Type": "application/json"
