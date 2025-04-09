@@ -123,6 +123,10 @@ Requirements:
 - Ensure that all English expressions and example sentences are natural and grammatically correct.
 - All Korean translations should be clear and accurate.
     """
+    messages = [
+    {"role": "system", "content": "You are a strict and accurate English tutor who helps Korean students prepare for OPIc speaking tests. Do not use any language other than English and Korean. Keep all responses professional and error-free."},
+    {"role": "user", "content": prompt}
+    ]
 
     headers = {
         "Authorization": f"Bearer {GROQ_API_KEY}",
@@ -135,7 +139,7 @@ Requirements:
             {"role": "user", "content": prompt}
         ]
     }
-    res = requests.post("https://api.groq.com/openai/v1/chat/completions", json=data, headers=headers)
+    res = requests.post("https://api.groq.com/openai/v1/chat/completions", json=data, headers=headers,messages=messages)
     return res.json()["choices"][0]["message"]["content"]
 
 # Streamlit 앱 UI
