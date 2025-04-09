@@ -113,21 +113,16 @@ def generate_opic_questions(topic):
 # 자주 쓰는 단어 학습 기능
 def get_frequent_opic_words():
     prompt = """
-Please provide a list of 10 commonly used English words or phrases in OPIc speaking tests.
+    Please provide a list of 10 commonly used English words or phrases in OPIc speaking tests.
 
-Format each item as:
-1. [English phrase] - [Korean meaning] (Example: [English sentence] / [Korean translation])
+    Format each item as:
+    1. [English phrase] - [Korean meaning] (Example: [English sentence] / [Korean translation])
 
-Requirements:
-- Use only English and Korean. Do not use any other language (e.g., Japanese, Chinese).
-- Ensure that all English expressions and example sentences are natural and grammatically correct.
-- All Korean translations should be clear and accurate.
+    Requirements:
+    - Use only English and Korean. Do not use any other language (e.g., Japanese, Chinese).
+    - Ensure that all English expressions and example sentences are natural and grammatically correct.
+    - All Korean translations should be clear and accurate.
     """
-    messages = [
-    {"role": "system", "content": "You are a strict and accurate English tutor who helps Korean students prepare for OPIc speaking tests. Do not use any language other than English and Korean. Keep all responses professional and error-free."},
-    {"role": "user", "content": prompt}
-    ]
-
     headers = {
         "Authorization": f"Bearer {GROQ_API_KEY}",
         "Content-Type": "application/json"
@@ -135,11 +130,11 @@ Requirements:
     data = {
         "model": "llama3-70b-8192",
         "messages": [
-            {"role": "system", "content": "You are an OPIc tutor."},
+            {"role": "system", "content": "You are an OPIc tutor. Only use English and Korean. Be accurate and natural."},
             {"role": "user", "content": prompt}
         ]
     }
-    res = requests.post("https://api.groq.com/openai/v1/chat/completions", json=data, headers=headers,messages=messages)
+    res = requests.post("https://api.groq.com/openai/v1/chat/completions", json=data, headers=headers)
     return res.json()["choices"][0]["message"]["content"]
 
 # Streamlit 앱 UI
