@@ -50,7 +50,7 @@ def get_groq_feedback(user_input):
 
 # Streamlit UI
 st.title("🎧 영어 회화 피드백 챗봇 (Groq + Whisper)")
-uploaded_file = st.file_uploader("🔊 음성 파일 업로드 (.wav, .mp3)", type=["wav", "mp3"])
+uploaded_file = st.file_uploader("🔊 음성 파일 업로드 (.wav, .mp3, .mp4)", type=["wav", "mp3","mp4"])
 
 if uploaded_file is not None:
     with tempfile.NamedTemporaryFile(delete=False, suffix=".wav") as tmp:
