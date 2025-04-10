@@ -5,12 +5,7 @@ import tempfile
 from gtts import gTTS
 import os
 
-def load_api_key(filepath="groq_api_key.txt"):
-    with open(filepath, "r") as f:
-        return f.read().strip()
-
-GROQ_API_KEY = load_api_key()
-
+GROQ_API_KEY = st.secrets["GROQ_API_KEY"]
 # Whisper 모델 캐시 로딩
 @st.cache_resource
 def load_whisper():
