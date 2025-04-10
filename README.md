@@ -1,6 +1,6 @@
 # opic_last
 
-# 🎤 Opic Speaking Practice App
+# 🎤 Opic Speaking Practice App (open)
 
 영어 오픽(OPIc) 스피킹 연습을 위한 Streamlit 기반 웹 애플리케이션입니다.  
 음성 파일 업로드, 마이크 녹음, 텍스트 입력 등 다양한 방식으로 영어 문장을 입력하고, Whisper로 전사 및 HuggingFace 기반 문법 피드백을 받을 수 있습니다.
