@@ -110,11 +110,11 @@ if st.session_state.page == "home":
     st.subheader("")
 
 
-    st.subheader("🎙️ [스크립트 리스닝]주제별 스크립트를 선택하세요.")
+    st.subheader("🎙️ [스크립트 리스닝] 주제별 스크립트를 선택하세요.")
     script_library = load_script_library()
     topic = st.selectbox("📚 주제 선택", list(script_library.keys()))
     if topic:
-        question = st.selectbox("❓ 질문 선택", list(script_library[topic].keys()))
+        question = st.selectbox("🗨️ 질문 선택", list(script_library[topic].keys()))
         entry = script_library[topic][question]
         question_en = entry["question_en"]
         script_text = entry["script"]
