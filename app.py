@@ -173,14 +173,36 @@ if menu == "음성 피드백":
         os.remove(tts_path)
 
 elif menu == "모범 답변 듣기":
-    question = st.text_input("📝 오픽 질문 입력")
-    if st.button("모범 답변 보기") and question:
-        answer = get_model_answer(question)
-        st.markdown(answer)
-        tts = gTTS(answer, lang="en")
-        tts_path = "model_answer.mp3"
-        tts.save(tts_path)
-        st.audio(tts_path)
+    st.subheader("📝 미리 준비된 질문으로 모범 답변 들어보기")
+    script_library = load_script_library()
+
+    # 주제 선택
+    topic = st.selectbox("📚 주제를 선택하세요", list(script_library.keys()))
+
+    if topic:
+        questions = list(script_library[topic].keys())
+        # 질문 선택
+        question = st.selectbox("❓ 질문을 선택하세요", questions)
+
+        if question:
+            entry = script_library[topic][question]
+            question_en = entry["question_en"]
+            script_text = entry["script"]
+
+            st.markdown(f"**🗨️ 질문 (한글):** {question}")
+            st.markdown(f"**🗨️ 질문 (영어):** {question_en}")
+            st.markdown(f"**📘 모범 답변:**\n\n{script_text}")
+
+            if st.button("🎧 모범 답변 듣기"):
+                from gtts import gTTS
+                import tempfile
+
+                # TTS 생성 → 임시 파일로 저장
+                tts = gTTS(script_text, lang="en")
+                with tempfile.NamedTemporaryFile(delete=False, suffix=".mp3") as tmp:
+                    tts.save(tmp.name)
+                    st.audio(tmp.name)
+
 
 elif menu == "문장 변환 퀴즈":
     sentence = st.text_input("✏️ 변환하고 싶은 문장 입력")
