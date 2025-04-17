@@ -141,7 +141,7 @@ menu = st.radio("기능 선택", [
 ], horizontal=True)
 
 if menu == "음성 피드백":
-    uploaded_file = st.file_uploader("🔊 음성/영상 파일 업로드 (.wav, .mp3, .mp4)", type=["wav", "mp3", "mp4"])
+    uploaded_file = st.file_uploader("🔊 음성/영상 파일 업로드 (.wav, .mp3, .mp4, .m4a)", type=["wav", "mp3", "mp4", "m4a"])
 
     if uploaded_file is not None:
         with tempfile.NamedTemporaryFile(delete=False, suffix=".mp4") as tmp:
