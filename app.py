@@ -5,7 +5,7 @@ import tempfile
 from gtts import gTTS
 import os
 import json
-st.set_page_config(page_title="오픽스터디머신")
+
 GROQ_API_KEY = st.secrets["GROQ_API_KEY"]
 # Whisper 모델 캐시 로딩
 @st.cache_resource
