@@ -248,5 +248,21 @@ elif menu == "스크립트 듣기":
 
                 gTTS(script_text, lang="en").save("답변 스크립트.mp3")
                 st.audio("답변 스크립트.mp3")
-
+st.markdown(
+    """
+    <style>
+        /* 전체 본문 상단 여백 제거 */
+        .block-container { padding-top: 0rem; }
+        /* 탭 리스트 바로 아래 컨텐트의 마진 없애기 */
+        [data-baseweb="tab-list"] {
+            margin-bottom: 0rem !important;
+        }
+        [data-baseweb="tab-list"] + div {
+            margin-top: 0rem !important;
+            padding-top: 0rem !important;
+        }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
 
