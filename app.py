@@ -132,7 +132,7 @@ if st.session_state.page == "home":
                 st.audio(s_tmp.name)
 
     st.markdown("---")
-    st.subheader("연습하고 싶은 기능을 선택하세요:")
+    st.subheader("연습하고 싶은 기능을 더블 클릭하세요:")
 
     # 나머지 4개 기능 버튼 한 줄 배치
     col1, col2, col3, col4, col5 = st.columns(5)
