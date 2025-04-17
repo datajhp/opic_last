@@ -104,13 +104,19 @@ def get_frequent_opic_words():
     return res.json()["choices"][0]["message"]["content"]
 
 # ---------------------- 페이지 구성 ----------------------
-
 # 홈 화면
 if st.session_state.page == "home":
     st.title("🎧 Opic & 회화 피드백 머신")
     st.subheader("연습하고 싶은 기능을 선택하세요:")
 
-    col1, col2, col3 = st.columns(3)
+    # 스크립트 학습 단독 배치
+    if st.button("📚 스크립트 학습"):
+        go_to("스크립트 학습")
+
+    st.markdown("---")
+
+    # 나머지 4개 기능 버튼 한 줄 배치
+    col1, col2, col3, col4, col5 = st.columns(5)
     with col1:
         if st.button("🎤 음성 피드백"):
             go_to("음성 피드백")
@@ -120,18 +126,14 @@ if st.session_state.page == "home":
     with col3:
         if st.button("🧠 문장 변환 퀴즈"):
             go_to("문장 변환 퀴즈")
-
-    st.markdown("---")
-    col4, col5, col6 = st.columns(3)
     with col4:
-        if st.button("📚 스크립트 학습"):
-            go_to("스크립트 학습")
+        if st.button("🗂 자주 쓰는 단어 학습"):
+            go_to("자주 쓰는 단어 학습")
     with col5:
         if st.button("❓ 오픽 문제은행"):
             go_to("오픽 문제은행")
-    with col6:
-        if st.button("🗂 자주 쓰는 단어 학습"):
-            go_to("자주 쓰는 단어 학습")
+
+
 
 # 음성 피드백
 elif st.session_state.page == "음성 피드백":
