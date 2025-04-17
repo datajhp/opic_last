@@ -4,6 +4,7 @@ import requests
 import tempfile
 from gtts import gTTS
 import os
+import json
 
 GROQ_API_KEY = st.secrets["GROQ_API_KEY"]
 # Whisper 모델 캐시 로딩
@@ -42,6 +43,11 @@ def get_groq_feedback(user_input):
 
     res = requests.post("https://api.groq.com/openai/v1/chat/completions", json=data, headers=headers)
     return res.json()["choices"][0]["message"]["content"]
+
+@st.cache_resource
+def load_script_library():
+    with open("data/script_library.json", "r", encoding="utf-8") as f:
+        return json.load(f)
 
 # 모범 답변 생성 함수
 def get_model_answer(question):
@@ -137,7 +143,7 @@ st.set_page_config(layout="centered")
 st.title("🎧 영어 회화 피드백 & 오픽 연습 (Groq + Whisper)")
 
 menu = st.radio("기능 선택", [
-    "음성 피드백", "모범 답변 듣기", "문장 변환 퀴즈", "오픽 문제은행", "자주 쓰는 단어 학습"
+    "음성 피드백", "모범 답변 듣기", "문장 변환 퀴즈", "오픽 문제은행", "자주 쓰는 단어 학습", "스크립트 듣기"
 ], horizontal=True)
 
 if menu == "음성 피드백":
@@ -192,3 +198,35 @@ elif menu == "자주 쓰는 단어 학습":
     if st.button("단어 목록 보기"):
         words = get_frequent_opic_words()
         st.markdown(words)
+
+elif menu == "스크립트 듣기":
+    st.subheader("🎙️ 주제별 스크립트를 선택해 들어보세요")
+
+    script_library = load_script_library()
+
+    topic = st.selectbox("📚 주제를 선택하세요", list(script_library.keys()))
+
+    if topic:
+        questions = list(script_library[topic].keys())
+        question = st.selectbox("❓ 질문을 선택하세요", questions)
+
+        if question:
+            entry = script_library[topic][question]
+            question_en = entry["question_en"]
+            script_text = entry["script"]
+
+            st.markdown(f"**🗨️ 질문 (한글):** {question}")
+            st.markdown(f"**🗨️ 질문 (영어):** {question_en}")
+            st.markdown(f"**📘 스크립트:** {script_text}")
+
+            if st.button("🎧 질문과 스크립트 듣기"):
+                gTTS(question, lang="ko").save("q_ko.mp3")
+                st.audio("q_ko.mp3")
+
+                gTTS(question_en, lang="en").save("q_en.mp3")
+                st.audio("q_en.mp3")
+
+                gTTS(script_text, lang="en").save("script.mp3")
+                st.audio("script.mp3")
+
+
