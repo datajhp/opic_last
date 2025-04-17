@@ -90,51 +90,50 @@ def go_to(page):
     st.session_state.page = page
 
 # 홈 화면
-if st.session_state.page == "home":
-    st.title("🎧 Opic & 회화 피드백 머신")
-
-
-    menu = st.radio("기능 선택", [
-    "스크립트 학습", "오픽 문제은행", "자주 쓰는 단어 학습"
-    ], horizontal=True)
-    
-    if menu == "스크립트 학습":
-    st.subheader("🎙️ 주제별 스크립트를 선택해 들어보세요")
-
-    script_library = load_script_library()
-
-    topic = st.selectbox("📚 주제를 선택하세요", list(script_library.keys()))
-
-    if topic:
-        questions = list(script_library[topic].keys())
-        question = st.selectbox("❓ 질문을 선택하세요", questions)
-
-        if question:
-            entry = script_library[topic][question]
-            question_en = entry["question_en"]
-            script_text = entry["script"]
-
-            st.markdown(f"**🗨️ 질문 (한글):** {question}")
-            st.markdown(f"**🗨️ 질문 (영어):** {question_en}")
-            st.markdown(f"**📘 스크립트:** {script_text}")
-
-            if st.button("🎧 질문과 스크립트 듣기"):
-
-                gTTS(question_en, lang="en").save("질문.mp3")
-                st.audio("질문.mp3")
-
-                gTTS(script_text, lang="en").save("답변 스크립트.mp3")
-    elif menu == "자주 쓰는 단어 학습":
-    if st.button("단어 목록 보기"):
-        words = get_frequent_opic_words()
-        st.markdown(words)
+    if st.session_state.page == "home":
+        st.title("🎧 Opic & 회화 피드백 머신")
         
-    elif menu == "오픽 문제은행":
-    topic = st.text_input("📚 주제 입력 (예: 여행, 음악, 집안일 등)")
-    if st.button("문제 생성") and topic:
-        questions = generate_opic_questions(topic)
-        st.markdown(questions)
-
+        menu = st.radio("기능 선택", [
+        "스크립트 학습", "오픽 문제은행", "자주 쓰는 단어 학습"
+        ], horizontal=True)
+        
+        if menu == "스크립트 학습":
+        st.subheader("🎙️ 주제별 스크립트를 선택해 들어보세요")
+    
+        script_library = load_script_library()
+    
+        topic = st.selectbox("📚 주제를 선택하세요", list(script_library.keys()))
+    
+        if topic:
+            questions = list(script_library[topic].keys())
+            question = st.selectbox("❓ 질문을 선택하세요", questions)
+    
+            if question:
+                entry = script_library[topic][question]
+                question_en = entry["question_en"]
+                script_text = entry["script"]
+    
+                st.markdown(f"**🗨️ 질문 (한글):** {question}")
+                st.markdown(f"**🗨️ 질문 (영어):** {question_en}")
+                st.markdown(f"**📘 스크립트:** {script_text}")
+    
+                if st.button("🎧 질문과 스크립트 듣기"):
+    
+                    gTTS(question_en, lang="en").save("질문.mp3")
+                    st.audio("질문.mp3")
+    
+                    gTTS(script_text, lang="en").save("답변 스크립트.mp3")
+        elif menu == "자주 쓰는 단어 학습":
+        if st.button("단어 목록 보기"):
+            words = get_frequent_opic_words()
+            st.markdown(words)
+            
+        elif menu == "오픽 문제은행":
+        topic = st.text_input("📚 주제 입력 (예: 여행, 음악, 집안일 등)")
+        if st.button("문제 생성") and topic:
+            questions = generate_opic_questions(topic)
+            st.markdown(questions)
+    
 
 
 
