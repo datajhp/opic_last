@@ -1,0 +1,18 @@
+{
+  "여행": {
+    "최근에 간 여행에 대해 말해보세요": {
+      "question_en": "Tell me about a recent trip you took.",
+      "script": "Last year, I traveled to Jeju Island. It was amazing, especially the beaches and the food."
+    },
+    "가장 기억에 남는 여행 경험은 무엇인가요?": {
+      "question_en": "What is your most memorable travel experience?",
+      "script": "My most memorable trip was to Paris. I saw the Eiffel Tower and ate lots of delicious pastries."
+    }
+  },
+  "일상생활": {
+    "하루 일과를 설명해보세요": {
+      "question_en": "Describe your daily routine.",
+      "script": "I usually wake up at 7 AM, go for a run, have breakfast, and then head to work."
+    }
+  }
+}
