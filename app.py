@@ -46,7 +46,7 @@ def get_groq_feedback(user_input):
 
 @st.cache_resource
 def load_script_library():
-    with open("data/script_library.json", "r", encoding="utf-8") as f:
+    with open("script_library.json", "r", encoding="utf-8") as f:
         return json.load(f)
 
 # 모범 답변 생성 함수
