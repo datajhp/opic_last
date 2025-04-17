@@ -146,8 +146,8 @@ if st.session_state.page == "home":
         if st.button("문장 변환 퀴즈"):
             go_to("문장 변환 퀴즈")
     with col4:
-        if st.button("자주 쓰는 단어 학습"):
-            go_to("오픽 단어 학습")
+        if st.button("오픽 표현 학습"):
+            go_to("자주 쓰는 표현 학습")
     with col5:
         if st.button("오픽 문제은행"):
             go_to("오픽 문제은행")
