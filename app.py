@@ -143,7 +143,7 @@ st.set_page_config(layout="centered")
 st.title("🎧 영어 회화 피드백 & 오픽 연습")
 
 menu = st.radio("기능 선택", [
-    "음성 피드백", "모범 답변 듣기", "문장 변환 퀴즈", "오픽 문제은행", "자주 쓰는 단어 학습", "스크립트 듣기"
+    "스크립트 학습","음성 피드백", "모범 답변 듣기", "문장 변환 퀴즈", "오픽 문제은행", "자주 쓰는 단어 학습"
 ], horizontal=True)
 
 if menu == "음성 피드백":
@@ -221,7 +221,7 @@ elif menu == "자주 쓰는 단어 학습":
         words = get_frequent_opic_words()
         st.markdown(words)
 
-elif menu == "스크립트 듣기":
+elif menu == "스크립트 학습":
     st.subheader("🎙️ 주제별 스크립트를 선택해 들어보세요")
 
     script_library = load_script_library()
