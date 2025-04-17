@@ -13,6 +13,22 @@
     "집의 모습 묘사": {
       "question_en": "You indicated in the survey that you live in an apartment. Tell me about your home. What does is look like? What types of rooms does it have? Please describe it in detail.",
       "script": "I live in a 3-badroom apartment. when you walk in the front door, you can see an entrance area where you can take off your shoes. On the left, there is my room. The living room is also to the left. On the right is a kitchen. Next to the kitchen, you can see a bathroom and balcony. My house is very clean and modern."
+    },
+    "내 방 묘사": {
+      "question_en": "Tell me about yor badroom. What does it look like and What do you keep in it? Use as many details as possible to describe it.",
+      "script": "I think my room is very clean and modern. I love my room because it's only for me. I can have quiet moment all by myself without any distractions. Another reason is that since my badroom has large windows, I can enjoy breathtaking view and fresh air. when you walk in my room, you can see a bad. On the left there is a dressing table. A desk is also to the left. On the right is a bookshelf. I am very satisfied with my room."
+    },
+    "집의 모습 묘사": {
+      "question_en": "Tell me about yor badroom. What does it look like and What do you keep in it? Use as many details as possible to describe it.",
+      "script": "I live in a 3-badroom apartment. when you walk in the front door, you can see an entrance area where you can take off your shoes. On the left, there is my room. The living room is also to the left. On the right is a kitchen. Next to the kitchen, you can see a bathroom and balcony. My house is very clean and modern."
+    },
+    "집의 모습 묘사": {
+      "question_en": "You indicated in the survey that you live in an apartment. Tell me about your home. What does is look like? What types of rooms does it have? Please describe it in detail.",
+      "script": "I live in a 3-badroom apartment. when you walk in the front door, you can see an entrance area where you can take off your shoes. On the left, there is my room. The living room is also to the left. On the right is a kitchen. Next to the kitchen, you can see a bathroom and balcony. My house is very clean and modern."
+    },
+    "집의 모습 묘사": {
+      "question_en": "You indicated in the survey that you live in an apartment. Tell me about your home. What does is look like? What types of rooms does it have? Please describe it in detail.",
+      "script": "I live in a 3-badroom apartment. when you walk in the front door, you can see an entrance area where you can take off your shoes. On the left, there is my room. The living room is also to the left. On the right is a kitchen. Next to the kitchen, you can see a bathroom and balcony. My house is very clean and modern."
     }
   }
 }
