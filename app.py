@@ -248,3 +248,34 @@ elif menu == "스크립트 듣기":
 
                 gTTS(script_text, lang="en").save("답변 스크립트.mp3")
 
+st.markdown(
+    """
+    <style>
+        /* 상단 여백 제거 */
+        .block-container {
+            padding-top: 0rem !important;
+        }
+
+        /* 헤더 Share / Edit / GitHub 아이콘 숨김 */
+        header[data-testid="stHeader"] {
+            visibility: hidden;
+        }
+
+        /* 좌우 여백 줄이기 (선택 사항) */
+        .main .block-container {
+            padding-left: 2rem;
+            padding-right: 2rem;
+        }
+
+        /* 파일 업로드 위 여백 제거 (탭이 있을 경우) */
+        [data-baseweb="tab-list"] {
+            margin-bottom: 0rem !important;
+        }
+        [data-baseweb="tab-list"] + div {
+            margin-top: 0rem !important;
+            padding-top: 0rem !important;
+        }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
