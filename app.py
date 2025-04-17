@@ -136,7 +136,8 @@ if st.session_state.page == "home":
 
 # 음성 피드백
 elif st.session_state.page == "음성 피드백":
-    st.button("← 홈으로", on_click=lambda: go_to("home"))
+    if st.button("← 홈으로"):
+    go_to("home")
     st.subheader("🎤 음성 피드백")
     uploaded_file = st.file_uploader("🔊 음성 파일 업로드 (.wav, .mp3, .mp4, .m4a)", type=["wav", "mp3", "mp4", "m4a"])
     if uploaded_file is not None:
@@ -179,7 +180,8 @@ elif st.session_state.page == "모범 답변 듣기":
 
 # 문장 변환 퀴즈
 elif st.session_state.page == "문장 변환 퀴즈":
-    st.button("← 홈으로", on_click=lambda: go_to("home"))
+    if st.button("← 홈으로"):
+    go_to("home")
     st.subheader("🧠 문장 변환 퀴즈")
     sentence = st.text_input("✏️ 변환하고 싶은 문장 입력")
     if st.button("자연스럽게 바꾸기") and sentence:
@@ -188,7 +190,8 @@ elif st.session_state.page == "문장 변환 퀴즈":
 
 # 스크립트 학습
 elif st.session_state.page == "스크립트 학습":
-    st.button("← 홈으로", on_click=lambda: go_to("home"))
+    if st.button("← 홈으로"):
+    go_to("home")
     st.subheader("🎙️ 주제별 스크립트를 선택해 들어보세요")
     script_library = load_script_library()
     topic = st.selectbox("📚 주제를 선택하세요", list(script_library.keys()))
@@ -212,7 +215,8 @@ elif st.session_state.page == "스크립트 학습":
 
 # 오픽 문제은행
 elif st.session_state.page == "오픽 문제은행":
-    st.button("← 홈으로", on_click=lambda: go_to("home"))
+    if st.button("← 홈으로"):
+    go_to("home")
     st.subheader("❓ 오픽 문제 생성")
     topic = st.text_input("📌 주제를 입력하세요 (예: 여행, 음악, 집안일 등)")
     if st.button("문제 생성") and topic:
@@ -221,7 +225,8 @@ elif st.session_state.page == "오픽 문제은행":
 
 # 자주 쓰는 단어 학습
 elif st.session_state.page == "자주 쓰는 단어 학습":
-    st.button("← 홈으로", on_click=lambda: go_to("home"))
+    if st.button("← 홈으로"):
+    go_to("home")
     st.subheader("🗂 자주 쓰는 단어 학습")
     if st.button("단어 목록 보기"):
         words = get_frequent_opic_words()
