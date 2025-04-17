@@ -222,9 +222,9 @@ elif menu == "스크립트 듣기":
             if st.button("🎧 질문과 스크립트 듣기"):
 
                 gTTS(question_en, lang="en").save("질문.mp3")
-                st.audio("q_en.mp3")
+                st.audio("질문.mp3")
 
                 gTTS(script_text, lang="en").save("답변 스크립트.mp3")
-                st.audio("script.mp3")
+                st.audio("답변 스크립트.mp3")
 
 
