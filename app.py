@@ -59,7 +59,7 @@ def get_groq_feedback(user_input):
         "Content-Type": "application/json"
     }
     data = {
-        "model": "llama3-70b-8192",
+        "model": "meta-llama/llama-4-scout-17b-16e-instruct",
         "messages": [
             {"role": "system", "content": "You are a helpful English tutor."},
             {"role": "user", "content": prompt}
@@ -80,7 +80,7 @@ def transform_quiz(sentence):
         "Content-Type": "application/json"
     }
     data = {
-        "model": "llama3-70b-8192",
+        "model": "meta-llama/llama-4-scout-17b-16e-instruct",
         "messages": [
             {"role": "system", "content": "You are an English grammar coach."},
             {"role": "user", "content": prompt}
@@ -92,14 +92,14 @@ def transform_quiz(sentence):
 def generate_opic_questions(topic):
     prompt = f"Generate 3 realistic OPIc questions for the topic: '{topic}'. Include Korean translations."
     headers = {"Authorization": f"Bearer {GROQ_API_KEY}", "Content-Type": "application/json"}
-    data = {"model": "llama3-70b-8192", "messages": [{"role": "system", "content": "You are an expert OPIc question generator."}, {"role": "user", "content": prompt}]}
+    data = {"model": "meta-llama/llama-4-scout-17b-16e-instruct", "messages": [{"role": "system", "content": "You are an expert OPIc question generator."}, {"role": "user", "content": prompt}]}
     res = requests.post("https://api.groq.com/openai/v1/chat/completions", json=data, headers=headers)
     return res.json()["choices"][0]["message"]["content"]
 
 def get_frequent_opic_words():
     prompt = "Please provide 10 commonly used English words/phrases in OPIc with examples and Korean translations."
     headers = {"Authorization": f"Bearer {GROQ_API_KEY}", "Content-Type": "application/json"}
-    data = {"model": "llama3-70b-8192", "messages": [{"role": "system", "content": "You are an OPIc tutor."}, {"role": "user", "content": prompt}]}
+    data = {"model": "meta-llama/llama-4-scout-17b-16e-instruct", "messages": [{"role": "system", "content": "You are an OPIc tutor."}, {"role": "user", "content": prompt}]}
     res = requests.post("https://api.groq.com/openai/v1/chat/completions", json=data, headers=headers)
     return res.json()["choices"][0]["message"]["content"]
 
