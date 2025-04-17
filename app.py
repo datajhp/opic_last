@@ -41,6 +41,7 @@ if "page" not in st.session_state:
 
 def go_to(page):
     st.session_state.page = page
+    st.experimental_rerun()
 
 # Groq API 함수들
 def get_groq_feedback(user_input):
@@ -59,7 +60,7 @@ def get_groq_feedback(user_input):
         "Content-Type": "application/json"
     }
     data = {
-        "model": "llama3-70b-8192",
+        "model": "meta-llama/llama-4-scout-17b-16e-instruct",
         "messages": [
             {"role": "system", "content": "You are a helpful English tutor."},
             {"role": "user", "content": prompt}
