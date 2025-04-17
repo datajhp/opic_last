@@ -9,10 +9,10 @@
       "script": "My most memorable trip was to Paris. I saw the Eiffel Tower and ate lots of delicious pastries."
     }
   },
-  "일상생활": {
-    "하루 일과를 설명해보세요": {
-      "question_en": "Describe your daily routine.",
-      "script": "I usually wake up at 7 AM, go for a run, have breakfast, and then head to work."
+  "Home": {
+    "집의 모습 묘사": {
+      "question_en": "You indicated in the survey that you live in an apartment. Tell me about your home. What does is look like? What types of rooms does it have? Please describe it in detail.",
+      "script": "I live in a 3-badroom apartment. when you walk in the front door, you can see an entrance area where you can take off your shoes. On the left, there is my room. The living room is also to the left. On the right is a kitchen. Next to the kitchen, you can see a bathroom and balcony. My house is very clean and modern."
     }
   }
 }
