@@ -220,13 +220,11 @@ elif menu == "스크립트 듣기":
             st.markdown(f"**📘 스크립트:** {script_text}")
 
             if st.button("🎧 질문과 스크립트 듣기"):
-                gTTS(question, lang="ko").save("q_ko.mp3")
-                st.audio("q_ko.mp3")
 
-                gTTS(question_en, lang="en").save("q_en.mp3")
+                gTTS(question_en, lang="en").save("질문.mp3")
                 st.audio("q_en.mp3")
 
-                gTTS(script_text, lang="en").save("script.mp3")
+                gTTS(script_text, lang="en").save("답변 스크립트.mp3")
                 st.audio("script.mp3")
 
 
