@@ -108,10 +108,27 @@ def get_frequent_opic_words():
 if st.session_state.page == "home":
     st.title("🎧 Opic & 회화 피드백 머신")
     st.subheader("연습하고 싶은 기능을 선택하세요:")
-
-    # 스크립트 학습 단독 배치
-    if st.button("📚 스크립트 학습"):
-        go_to("스크립트 학습")
+    st.button("← 홈으로", on_click=lambda: go_to("home"))
+    st.subheader("🎙️ 주제별 스크립트를 선택해 들어보세요")
+    script_library = load_script_library()
+    topic = st.selectbox("📚 주제를 선택하세요", list(script_library.keys()))
+    if topic:
+        question = st.selectbox("❓ 질문을 선택하세요", list(script_library[topic].keys()))
+        entry = script_library[topic][question]
+        question_en = entry["question_en"]
+        script_text = entry["script"]
+        st.markdown(f"**🗨️ 질문 (한글):** {question}")
+        st.markdown(f"**🗨️ 질문 (영어):** {question_en}")
+        st.markdown(f"**📘 스크립트:**\n\n{script_text}")
+        if st.button("🎧 질문과 스크립트 듣기"):
+            q_tts = gTTS(question_en, lang="en")
+            s_tts = gTTS(script_text, lang="en")
+            with tempfile.NamedTemporaryFile(delete=False, suffix=".mp3") as q_tmp:
+                q_tts.save(q_tmp.name)
+                st.audio(q_tmp.name)
+            with tempfile.NamedTemporaryFile(delete=False, suffix=".mp3") as s_tmp:
+                s_tts.save(s_tmp.name)
+                st.audio(s_tmp.name)
 
     st.markdown("---")
 
@@ -187,29 +204,6 @@ elif st.session_state.page == "문장 변환 퀴즈":
         result = transform_quiz(sentence)
         st.markdown(result)
 
-# 스크립트 학습
-elif st.session_state.page == "스크립트 학습":
-    st.button("← 홈으로", on_click=lambda: go_to("home"))
-    st.subheader("🎙️ 주제별 스크립트를 선택해 들어보세요")
-    script_library = load_script_library()
-    topic = st.selectbox("📚 주제를 선택하세요", list(script_library.keys()))
-    if topic:
-        question = st.selectbox("❓ 질문을 선택하세요", list(script_library[topic].keys()))
-        entry = script_library[topic][question]
-        question_en = entry["question_en"]
-        script_text = entry["script"]
-        st.markdown(f"**🗨️ 질문 (한글):** {question}")
-        st.markdown(f"**🗨️ 질문 (영어):** {question_en}")
-        st.markdown(f"**📘 스크립트:**\n\n{script_text}")
-        if st.button("🎧 질문과 스크립트 듣기"):
-            q_tts = gTTS(question_en, lang="en")
-            s_tts = gTTS(script_text, lang="en")
-            with tempfile.NamedTemporaryFile(delete=False, suffix=".mp3") as q_tmp:
-                q_tts.save(q_tmp.name)
-                st.audio(q_tmp.name)
-            with tempfile.NamedTemporaryFile(delete=False, suffix=".mp3") as s_tmp:
-                s_tts.save(s_tmp.name)
-                st.audio(s_tmp.name)
 
 # 오픽 문제은행
 elif st.session_state.page == "오픽 문제은행":
