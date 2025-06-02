@@ -40,5 +40,41 @@
       "question_en": "How has your neighborhood changed from when you were young? Describe in detail how it was in the past, and how it is now",
       "script": "Well .. My current neighborhood is very different from my old neighborhood. When I was young, I lived in the countryside. It was very quiet all the time and it had limited amenities. It took more than 2 hours to a grocery store. But now, I live in the downtown. It's a busy city 24/7. Everything is within walking distance so it's super convenient! I love my current neighborhood. "
     }
+  },
+   "영화 관람": {
+    "가장 좋아하는 영화 장르": {
+      "question_en": "In your background survey, you indicated that you enjoy watching movies. What is your favorite type of movie and why? Please provide as many details as possible.",
+      "script": "I live in the downtown of Seoul. There are many restaurants and supermarkets in my neighborhood. Also, it has a good transportation system. It's only a 5-minute walk to a subway station. My neighborhood is very clean and nice. I feel lucky to live in my neighborhood."
+    },
+    "가장 좋아하는 영화배우": {
+      "question_en": "Who is your favorite actor? What movies has this actor starred in? What do you like about him or her?",
+      "script": "I am close with one of my neighbors. His name is Sam. He lives right next to me. He is a teacher who lives alone. We have a lot in common. I think we get together at least once a week. We usually watch movies together. We also go grocery shopping and go for awalk when we have time. He is a good neighbor who became my friend."
+    },
+    "영화를 보는 루틴": {
+      "question_en": "What is your routine when you go to the theater? What do you do before watching movies? What about after? Please describe your routine in detail.",
+      "script": "I think I usually go to a movie theater once a month, I usually see them with my friend, Sam because he and I have a similar taste in movies, I always read reviews on the Internet and reserve tickets before the movie, Then I buy popcorns and drinks at a snack bar, After the movie, Sam and I go for dinner and talk about the movie, When I go home, I sometimes write a review of the movie on my blog, I think watching a movie is a great stress reliever."
+    },
+    "가장 좋아하는 영화": {
+      "question_en": "Talk about a movie you remember best, What was it about? Who was in it? How did you feel when watching it?",
+      "script": "My number one movie is About Time, It’s an American movie released in 2013. It is about a young man with the special ability to travel time, He tries to change his past to make his future better, I love this movie because it is based on a famous book, When I want to relieve my stress, I watch this movie, This movie taught me a lesson; every moment is very important in your life, While watching the movie, I was really touched."
+    },,
+   "동네 및 이웃": {
+    "동네 소개와 묘사": {
+      "question_en": "You indicated in the survey that you live in an apartment. What is your neighborhood like? where is it located? Please describe your neighborhood in detail.",
+      "script": "I live in the downtown of Seoul. There are many restaurants and supermarkets in my neighborhood. Also, it has a good transportation system. It's only a 5-minute walk to a subway station. My neighborhood is very clean and nice. I feel lucky to live in my neighborhood."
+    },
+    "이웃 묘사": {
+      "question_en": "I would like to know about your neighbors. Who are they? What do they do? How often do you interact with them?",
+      "script": "I am close with one of my neighbors. His name is Sam. He lives right next to me. He is a teacher who lives alone. We have a lot in common. I think we get together at least once a week. We usually watch movies together. We also go grocery shopping and go for awalk when we have time. He is a good neighbor who became my friend."
+    },
+    "동네에 있었던 기억에 남는 경험": {
+      "question_en": "Can you tell me about an interesting or memorable experience you have had in your neighborhood? Tell me about the experiencein detail and explain what made it so memorable. ",
+      "script": "Yes, I had a special experience. I was taking a walk in my neighborhood last year. When I was walking, I ran into an old friend of mine. My friend in my neighborhood! Can you believe it? We went to the same high school. He told me he was shopping with his family. We met for a drink that night. It was an amazing experience. We became even better friends after that."
+    },
+    "현재동네 vs 과거동네": {
+      "question_en": "How has your neighborhood changed from when you were young? Describe in detail how it was in the past, and how it is now",
+      "script": "Well .. My current neighborhood is very different from my old neighborhood. When I was young, I lived in the countryside. It was very quiet all the time and it had limited amenities. It took more than 2 hours to a grocery store. But now, I live in the downtown. It's a busy city 24/7. Everything is within walking distance so it's super convenient! I love my current neighborhood. "
+    }
+  }
   }
 }
